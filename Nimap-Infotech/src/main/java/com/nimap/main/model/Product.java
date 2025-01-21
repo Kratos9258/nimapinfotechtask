@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -14,7 +15,16 @@ public class Product {
 	private String productName;
 	private double productPrice;
 	private String mfgDate;
-	
+	@ManyToOne
+	private Category cat;
+
+	public Category getCat() {
+		return cat;
+	}
+
+	public void setCat(Category cat) {
+		this.cat = cat;
+	}
 
 	public String getProductName() {
 		return productName;
